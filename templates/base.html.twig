@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>La Boutique Française - 100% Made in France</title>
-    <meta name="description" content="La boutique spécialisée dans la fabrication Made In France">
+    <title>Site e-commerce étudiant</title>
+    <meta name="description" content="Site e-commerce étudiant">
 
     <link rel="stylesheet" href="{{ asset ('assets/css/style.css')}}">
 
@@ -20,14 +20,14 @@
 <header data-bs-theme="dark">
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">La Boutique Française</a>
+            <a class="navbar-brand" href="{{ path('app_home') }}">Site e-commerce étudiant</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav me-auto mb-2 mb-md-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <a class="nav-link active" aria-current="page" href="{{ path('app_home') }}">Accueil</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Link</a>
@@ -40,7 +40,11 @@
                     </li>
                 </ul>
                 <div class="speed-menu">
-                    <a href=""><i data-feather="user"></i></a>
+                {% if app.user %}
+                        <a href="{{ path('app_account') }}"><i data-feather="user"></i>{{ app.user.firstname }}</a>
+                {% else %}
+                        <a href="{{ path('app_login') }}"><i data-feather="user"></i></a>
+                {% endif %}
                     <a href=""><i data-feather="shopping-cart"></i></a>
                 </div>
             </div>
@@ -56,7 +60,7 @@
 
     <!-- FOOTER -->
     <footer class="container">
-        <p>&copy; 2017–2024 La Boutique Française <a href="#">CGV</a> &middot; <a href="#">CGU</a></p>
+        <p>&copy; 2024 Site e-commerce étudiant <a href="#">CGV</a> &middot; <a href="#">CGU</a></p>
     </footer>
 </main>
 
