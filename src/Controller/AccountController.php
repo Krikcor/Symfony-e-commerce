@@ -35,6 +35,10 @@ class AccountController extends AbstractController
 
             $EntityManager->flush();
 
+            $this->addFlash(
+                'success',
+            "Votre mot de passe a bien été mis à jour");
+            
         }
 
         return $this->render('account/password.html.twig', [

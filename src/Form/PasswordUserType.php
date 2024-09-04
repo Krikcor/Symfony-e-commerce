@@ -42,7 +42,7 @@ class PasswordUserType extends AbstractType
                 'attr' => [
                         'placeholder' => "Choisissez votre nouveau mot de passe"
                 ], 
-                'hash_property-path' => 'password'],
+                'hash_property_path' => 'password'],
     
                 'second_options' => ['label' => 'Confirmez votre nouveau mot de passe',
                 'attr' => [

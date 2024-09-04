@@ -45,7 +45,7 @@ class RegisterUserType extends AbstractType
             'attr' => [
                     'placeholder' => "Choisissez votre mot de passe"
             ], 
-            'hash_property-path' => 'password'],
+            'hash_property_path' => 'password'],
 
             'second_options' => ['label' => 'Confirmez votre mot de passe',
             'attr' => [
@@ -77,7 +77,7 @@ class RegisterUserType extends AbstractType
             ])],
                 'attr' => [
                     'placeholder' => "Entrez votre nom"
-                ] 
+                ]
            ])
 
 

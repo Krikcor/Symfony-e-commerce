@@ -29,15 +29,12 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="{{ path('app_home') }}">Accueil</a>
                     </li>
+                    {% for category in allCategories %}
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
+                        <a class="nav-link" href="{{ path('app_category', { slug : category.slug} ) }}">{{ category.name }}</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
-                    </li>
+                    {% endfor %}
+
                 </ul>
                 <div class="speed-menu">
                 {% if app.user %}
@@ -45,7 +42,10 @@
                 {% else %}
                         <a href="{{ path('app_login') }}"><i data-feather="user"></i></a>
                 {% endif %}
-                    <a href=""><i data-feather="shopping-cart"></i></a>
+                    <a href="{{ path('app_cart') }}">
+                    <i data-feather="shopping-cart"></i>
+                    <span class="badge text-bg-light">{{ fullCartQuantity }}</span>
+                    </a>
                 </div>
             </div>
         </div>
@@ -54,9 +54,20 @@
 
 <main>
 
+<div class="container">
+
+{% for label, messages in app.flashes %}
+    {% for message in messages %}
+        <div class="alert mt-4 alert-{{ label }}">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endfor %}
+
     {% block body %}
     {% endblock %}
 
+</div>
 
     <!-- FOOTER -->
     <footer class="container">
