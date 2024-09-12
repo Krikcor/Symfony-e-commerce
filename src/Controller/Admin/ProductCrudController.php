@@ -16,6 +16,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\SlugField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use App\Entity\Category;
+use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 
 class ProductCrudController extends AbstractCrudController
 {
@@ -45,6 +46,7 @@ class ProductCrudController extends AbstractCrudController
 
         return [
             TextField::new('name')->setLabel('Nom')->setHelp('Nom du Produit'),
+            BooleanField::new('isHomepage')->setLabel('Produit à la une ?')->setHelp('Affiche le produit sur la page principale du site'),
             SlugField::new('slug')->setTargetFieldName('name')->setLabel('URL')->setHelp('URL du produit généré automatiquement'),
             TextEditorField::new('description')->setLabel('Description'),
             ImageField::new('illustration')->setLabel('Image')->setHelp('Image du produit')
